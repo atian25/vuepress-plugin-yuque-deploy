@@ -2,21 +2,38 @@
   "name": "vuepress-plugin-yuque-deploy",
   "version": "1.0.0",
   "description": "deploy your vuepress markdown to https://www.yuque.com",
-  "dependencies": {},
+  "dependencies": {
+    "debug": "^4.1.1",
+    "escodegen": "^1.11.1",
+    "heading-id": "^1.0.0",
+    "is-type-of": "^1.2.1",
+    "mz": "^2.7.0",
+    "mz-modules": "^2.1.0",
+    "remark": "^10.0.1",
+    "remark-inline-links": "^3.1.2",
+    "remark-stringify": "^6.0.4",
+    "remark-toc": "^5.1.1",
+    "tree-crawl": "^1.0.5",
+    "unist-builder": "^1.0.3",
+    "unist-builder-blueprint": "^1.0.0",
+    "unist-util-select": "^2.0.0",
+    "unist-util-visit": "^1.4.0",
+    "vfile": "^4.0.0",
+    "zlogger": "^2.1.0"
+  },
   "devDependencies": {
     "autod": "^3.0.1",
+    "coffee": "^5.2.1",
     "egg-bin": "^4.3.7",
     "egg-ci": "^1.8.0",
     "eslint": "^4.18.1",
     "eslint-config-egg": "^7.0.0",
-    "vuepress": "^1.0.0-alpha.43",
+    "vuepress": "next",
     "webstorm-disable-index": "^1.2.0"
-  },
-  "engines": {
-    "node": ">=6.0.0"
   },
   "scripts": {
     "dev": "vuepress dev test/fixtures/example",
+    "debug": "DEBUG=LarkDeployer node --inspect-brk node_modules/vuepress/cli.js yuque-deploy test/fixtures/example",
     "autod": "autod",
     "lint": "eslint .",
     "test": "npm run lint -- --fix && egg-bin pkgfiles && npm run test-local",
@@ -25,21 +42,20 @@
     "ci": "npm run lint && egg-bin pkgfiles --check && npm run cov",
     "pkgfiles": "egg-bin pkgfiles"
   },
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "ci": {
-    "version": "8"
+    "version": "8, 10"
   },
   "eslintIgnore": [
     "coverage",
     "dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "files": [
-    "lib",
-    "index.js"
-  ],
+  "repository": "git@github.com:atian25/vuepress-plugin-yuque-deploy.git",
   "author": "TZ <atian25@qq.com>",
   "license": "MIT"
 }

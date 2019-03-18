@@ -6,3 +6,7 @@ tagline: delpoy your vuepress markdown to https://www.yuque.com
 actionText: Let's go~
 actionLink: /quickstart/
 ---
+
+::: tip
+as
+:::

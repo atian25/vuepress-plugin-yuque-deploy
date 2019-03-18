@@ -1,13 +1,18 @@
 'use strict';
 
-const path = require('path');
-const larkPlugin = require('../../../../');
+const deployPlugin = require('../../../../');
 
 module.exports = {
-  title: 'VuePress to Lark',
+  title: 'VuePress to YuQue',
   plugins: [
-    [ larkPlugin.cli, {
-        dist: path.join(__dirname, '../.tmp'),
+    [ deployPlugin, {
+        site: {
+          url: '',
+        },
+        api: {
+          repo: '',
+          token: '',
+        },
       }
     ],
   ],
@@ -18,10 +23,12 @@ module.exports = {
     },
   },
   themeConfig: {
-    // https://raw.githubusercontent.com/atian25/blog/master/assets/images/ucweb0.png
-    // repo: 'atian25/blog',
+    repo: 'https://github.com/atian25/vuepress-plugin-yuque-deploy',
     nav: [
+      { text: 'Guide', link: '/guide/' },
       { text: 'QuickStart', link: '/quickstart/' },
+      { text: 'Test', link: '/test/' },
+      { text: 'GitHub', link: 'https://github.com/atian25/vuepress-plugin-yuque-deploy' },
     ],
     sidebarDepth: 0,
     // TODO: sidebar could be array
@@ -31,17 +38,31 @@ module.exports = {
         [ './config.md', 'config alias' ],
       ],
 
-      // '/ecosystem/': [
-      //   './',
-      //   {
-      //     title: 'Sub Group',
-      //     collapsable: false,
-      //     children: [
-      //       [ './db/mysql/', 'MySQL alias' ],
-      //       './db/redis'
-      //     ],
-      //   }
-      // ],
+      '/guide/': [
+        './',
+        './link',
+      ],
+
+      '/test/sub/': [
+        [ '../', 'Back to Test' ],
+        [ '/guide/', 'Jump to Guide' ],
+        {
+          title: 'Group',
+          collapsable: false,
+          children: [
+            './',
+            './page1',
+            './page2.md',
+            [ '../faq', 'FAQ' ],
+          ],
+        },
+      ],
+
+      '/test/': [
+        './',
+        './sub/',
+        './faq',
+      ],
 
       '/ecosystem/db/': [
         './',
@@ -60,8 +81,20 @@ module.exports = {
         './',
       ],
 
-      '/others/': [
+      '/ecosystem/': [
         './',
+        {
+          title: 'Sub Group',
+          collapsable: false,
+          children: [
+            [ './db/mysql/', 'MySQL alias' ],
+            './db/redis'
+          ],
+        }
+      ],
+
+      '/other/': [
+        './foo',
       ],
     },
   },

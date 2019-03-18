@@ -1,6 +1,6 @@
 'use strict';
 
-const Deployer = require('..').Deployer;
+// const Deployer = require('..').Deployer;
 const coffee = require('coffee');
 const path = require('path');
 
@@ -16,35 +16,35 @@ describe('test/index.test.js', () => {
 
   describe('sidebar', () => {
     it('should support array', () => {
-      const deployer = new Deployer({}, {
-        vuepressDir: path.join(fixture, '.vuepress'),
-        themeConfig: {
-          sidebar: {
-            '/quickstart/': [
-              './',
-              './config.md',
-              [ './config.md', 'config alias' ],
-              {
-                title: 'Ecosystem Group',
-                collapsable: false,
-                children: [
-                  '/ecosystem/db/mysql/',
-                  '/ecosystem/db/mysql/faq',
-                  '/ecosystem/db/mysql/faq.md',
-                  '../ecosystem/db/mysql/faq.md',
+      // const deployer = new Deployer({}, {
+      //   vuepressDir: path.join(fixture, '.vuepress'),
+      //   themeConfig: {
+      //     sidebar: {
+      //       '/quickstart/': [
+      //         './',
+      //         './config.md',
+      //         [ './config.md', 'config alias' ],
+      //         {
+      //           title: 'Ecosystem Group',
+      //           collapsable: false,
+      //           children: [
+      //             '/ecosystem/db/mysql/',
+      //             '/ecosystem/db/mysql/faq',
+      //             '/ecosystem/db/mysql/faq.md',
+      //             '../ecosystem/db/mysql/faq.md',
 
-                  [ '/ecosystem/db/mysql/', 'mysql alias' ],
-                  [ '/ecosystem/db/mysql/faq', 'faq alias' ],
-                  [ '/ecosystem/db/mysql/faq.md', 'faq alias2' ],
-                  [ '../ecosystem/db/mysql/faq.md', 'faq relative alias' ],
-                ],
-              },
-            ],
-          },
-        },
-      });
+      //             [ '/ecosystem/db/mysql/', 'mysql alias' ],
+      //             [ '/ecosystem/db/mysql/faq', 'faq alias' ],
+      //             [ '/ecosystem/db/mysql/faq.md', 'faq alias2' ],
+      //             [ '../ecosystem/db/mysql/faq.md', 'faq relative alias' ],
+      //           ],
+      //         },
+      //       ],
+      //     },
+      //   },
+      // });
 
-      const result = deployer.normalizeSidebar();
+      // const result = deployer.calcTOC();
     });
   });
 });

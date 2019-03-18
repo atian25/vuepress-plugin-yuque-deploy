@@ -54,30 +54,4 @@ describe('test/utils.test.js', () => {
     const root = utils.getTree(sidebar);
     console.log(JSON.stringify(root, null, 2));
   });
-
-  it.only('.normalizeSidebar()', () => {
-    const sidebarInfo = [
-      './',
-      './config.md',
-      [ './config.md', 'config alias' ],
-      {
-        title: 'Ecosystem Group',
-        collapsable: false,
-        children: [
-          '/ecosystem/db/mysql/',
-          '/ecosystem/db/mysql/faq',
-          '/ecosystem/db/mysql/faq.md',
-          '../ecosystem/db/mysql/faq.md',
-
-          [ '/ecosystem/db/mysql/', 'mysql alias' ],
-          [ '/ecosystem/db/mysql/faq', 'faq alias' ],
-          [ '/ecosystem/db/mysql/faq.md', 'faq alias2' ],
-          [ '../ecosystem/db/mysql/faq.md', 'faq relative alias' ],
-        ],
-      },
-    ];
-
-    const result = utils.normalizeSidebar(sidebarInfo, '/quickstart/');
-    console.log(JSON.stringify(result, null, 2));
-  });
 });

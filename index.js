@@ -49,6 +49,13 @@ module.exports = (options, ctx) => {
           } else {
             // group
             item = { type: 'group', title: info.title };
+            // group node can also have a link.
+            if (info.path) {
+              item.filePath = utils.normalizeFilePath(
+                info.path.replace(/(\.html|\.md)$/, ''),
+                key
+              );
+            }
             item.children = info.children.map(v => normalizeInfo(v, key));
           }
           newArr.push(item);

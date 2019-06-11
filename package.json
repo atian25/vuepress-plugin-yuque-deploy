@@ -45,6 +45,7 @@
     "pkgfiles": "egg-bin pkgfiles"
   },
   "files": [
+    "index.js",
     "lib"
   ],
   "engines": {
